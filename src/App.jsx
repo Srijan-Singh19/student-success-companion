@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 
-import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Tasks from "./pages/Tasks";
 import Notes from "./pages/Notes";
@@ -11,12 +10,11 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
-export default function App(){
-    return(
-        <Routes>
-      <Route path="/" element={<Home />} />
+export default function App() {
+  return (
+    <Routes>
       <Route element={<MainLayout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/notes" element={<Notes />} />
         <Route path="/expenses" element={<Expenses />} />
@@ -27,5 +25,5 @@ export default function App(){
 
       <Route path="*" element={<NotFound />} />
     </Routes>
-    );
+  );
 }

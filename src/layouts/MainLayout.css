@@ -1,6 +1,6 @@
 .main-container {
   display: flex;
-  min-height: calc(100vh - 120px); /* Adjust later based on navbar/footer height */
+  min-height: calc(100vh - 120px);
 }
 
 .page-content {
