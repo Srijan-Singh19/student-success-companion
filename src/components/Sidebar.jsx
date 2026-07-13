@@ -16,9 +16,9 @@ export default function Sidebar(){
             <NavLink to="/expenses" className={({ isActive }) =>
     isActive ? "active-link" : ""
   }>Expenses</NavLink>
-            <NavLink to="/weather" className={({ isActive }) =>
+            <NavLink to="/studycenter" className={({ isActive }) =>
     isActive ? "active-link" : ""
-  }>Weather</NavLink>
+  }>Studytime</NavLink>
             <NavLink to="/profile" className={({ isActive }) =>
     isActive ? "active-link" : ""
   }>Profile</NavLink>

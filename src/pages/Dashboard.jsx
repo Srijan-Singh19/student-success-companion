@@ -8,7 +8,7 @@ export default function Dashboard(){
         <SummaryCard title="Tasks" value="4" />
       <SummaryCard title="Notes" value="6" />
       <SummaryCard title="Expenses" value="₹1200" />
-      <SummaryCard title="Weather" value="28°C" />
+      <SummaryCard title="Studytime" value="28°C" />
       <SummaryCard title="Study Progress" value="72%" />
         </div>
         </div>

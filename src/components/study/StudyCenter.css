@@ -1,0 +1,176 @@
+.study-center{
+
+    padding:40px;
+    min-height:100vh;
+    background:#f8eef4;
+}
+
+.study-center h1{
+
+    text-align:center;
+    color:#d95d90;
+    margin-bottom:30px;
+}
+
+/* ---------------- Clock ---------------- */
+
+.clock-card{
+
+    max-width:700px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+
+    margin-bottom:35px;
+}
+
+.clock-card h2{
+
+    color:#d95d90;
+}
+
+.clock-card h3{
+
+    color:#d95d90;
+
+    margin-top:20px;
+}
+
+.clock-card p{
+
+    color:#666;
+}
+
+.clock-card .quote{
+
+    font-style:italic;
+
+    margin:20px 0;
+}
+
+.clock-card h1{
+
+    font-size:5rem;
+
+    color:#444;
+
+    margin-top:25px;
+}
+
+/* --------------- Stopwatch ---------------- */
+
+.stopwatch-card,
+.countdown-card{
+
+    max-width:700px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+
+    margin-bottom:35px;
+}
+
+.stopwatch-card h2,
+.countdown-card h2{
+
+    color:#d95d90;
+
+    margin-bottom:20px;
+}
+
+.stopwatch-card h1,
+.countdown-card h1{
+
+    font-size:4rem;
+
+    color:#444;
+
+    margin-bottom:25px;
+}
+
+/* Buttons */
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.buttons button{
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:16px;
+}
+
+.start-btn{
+
+    background:#22c55e;
+}
+
+.pause-btn{
+
+    background:#f59e0b;
+}
+
+.reset-btn{
+
+    background:#ef4444;
+}
+
+.start-btn:hover{
+
+    background:#16a34a;
+}
+
+.pause-btn:hover{
+
+    background:#d97706;
+}
+
+.reset-btn:hover{
+
+    background:#dc2626;
+}
+
+@media(max-width:768px){
+
+.clock-card h1,
+.stopwatch-card h1,
+.countdown-card h1{
+
+    font-size:3rem;
+}
+
+}

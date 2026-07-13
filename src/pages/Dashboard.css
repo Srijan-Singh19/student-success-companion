@@ -1,6 +1,6 @@
 .dashboard {
   padding: 25px;
-  background-color: #f5f7fb;
+   background-color: var(--bg-color);
   min-height: 100%;
 }
 
