@@ -1,4 +1,6 @@
 import useLocalStorage from "../hooks/useLocalStorage";
+import { useContext } from "react";
+import { ExpenseContext } from "../context/ExpenseContext";
 
 import ExpenseForm from "../components/expenses/ExpenseForm";
 import ExpenseList from "../components/expenses/ExpenseList";
@@ -8,27 +10,15 @@ import "../components/expenses/Expenses.css";
 
 export default function Expenses() {
 
-  const [expenses, setExpenses] = useLocalStorage("expenses", []);
+    const {
 
-  function addExpense(amount, category) {
+expenses,
 
-    const expense = {
-      id: Date.now(),
-      amount: Number(amount),
-      category,
-      date: new Date().toLocaleDateString(),
-    };
+addExpense,
 
-    setExpenses([...expenses, expense]);
-  }
+deleteExpense
 
-  function deleteExpense(id) {
-
-    setExpenses(
-      expenses.filter((expense) => expense.id !== id)
-    );
-
-  }
+} = useContext(ExpenseContext);
 
   return (
 

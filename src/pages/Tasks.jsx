@@ -1,4 +1,5 @@
-import { useState, useEffect} from "react";
+import { useContext, useState } from "react";
+import { TaskContext } from "../context/TaskContext";
 
 import TaskForm from "../components/tasks/TaskForm";
 import TaskList from "../components/tasks/TaskList";
@@ -8,39 +9,14 @@ import FilterButtons from "../components/tasks/FilterButtons";
 import "../components/tasks/Tasks.css";
 
 export default function Tasks() {
-    const [tasks, setTasks] = useState(() => {
-    const savedTasks = localStorage.getItem("tasks");
+  const {
+    tasks,
+    addTask,
+    deleteTask,
+    toggleComplete,
+  } = useContext(TaskContext);
 
-    return savedTasks ? JSON.parse(savedTasks) : [];
-    });
   const [filter, setFilter] = useState("All");
-
-  function addTask(newTask, priority) {
-    if (newTask.trim() === "") return;
-
-    const task = {
-      id: Date.now(),
-      title: newTask,
-      completed: false,
-      priority,
-    };
-
-    setTasks([...tasks, task]);
-  }
-
-  function deleteTask(id) {
-    setTasks(tasks.filter((task) => task.id !== id));
-  }
-
-  function toggleComplete(id) {
-    const updatedTasks = tasks.map((task) =>
-      task.id === id
-        ? { ...task, completed: !task.completed }
-        : task
-    );
-
-    setTasks(updatedTasks);
-  }
 
   let filteredTasks = tasks;
 
@@ -52,10 +28,6 @@ export default function Tasks() {
     filteredTasks = tasks.filter((task) => !task.completed);
   }
   
-  useEffect(() => {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}, [tasks]);
-
   return (
     <div className="tasks-page">
       <h1>Task Manager</h1>
