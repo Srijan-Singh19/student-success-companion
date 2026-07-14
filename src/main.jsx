@@ -5,6 +5,7 @@ import ThemeProvider from "./context/ThemeContext";
 import TaskProvider from './context/TaskContext.jsx';
 import ExpenseProvider from './context/ExpenseContext.jsx';
 import NotesProvider from './context/NotesContext.jsx';
+import StudyProvider from "./context/StudyContext";
 import App from './App.jsx';
 import "./index.css";
 
@@ -15,7 +16,9 @@ createRoot(document.getElementById('root')).render(
         <TaskProvider>
            <ExpenseProvider>
             <NotesProvider>
+              <StudyProvider>
           <App />
+          </StudyProvider>
           </NotesProvider>
           </ExpenseProvider>
         </TaskProvider>

@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { FaPlay, FaPause, FaRedo } from "react-icons/fa";
+import { StudyContext } from "../../context/StudyContext";
 
 export default function Stopwatch() {
 
-  const [seconds, setSeconds] = useState(0);
+  const { studySeconds, setStudySeconds } = useContext(StudyContext);
+
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
@@ -13,21 +16,21 @@ export default function Stopwatch() {
 
       interval = setInterval(() => {
 
-        setSeconds(prev => prev + 1);
+        setStudySeconds(prev => prev + 1);
 
-      },1000);
+      }, 1000);
 
     }
 
     return () => clearInterval(interval);
 
-  },[isRunning]);
+  }, [isRunning, setStudySeconds]);
 
-  const hrs = String(Math.floor(seconds/3600)).padStart(2,"0");
-  const mins = String(Math.floor((seconds%3600)/60)).padStart(2,"0");
-  const secs = String(seconds%60).padStart(2,"0");
+  const hrs = String(Math.floor(studySeconds / 3600)).padStart(2, "0");
+  const mins = String(Math.floor((studySeconds % 3600) / 60)).padStart(2, "0");
+  const secs = String(studySeconds % 60).padStart(2, "0");
 
-  return(
+  return (
 
     <div className="stopwatch-card">
 
@@ -38,26 +41,29 @@ export default function Stopwatch() {
       <div className="buttons">
 
         <button
-        className="start-btn"
-        onClick={()=>setIsRunning(true)}
+          className="start-btn"
+          onClick={() => setIsRunning(true)}
         >
+          <FaPlay />
           Start
         </button>
 
         <button
-        className="pause-btn"
-        onClick={()=>setIsRunning(false)}
+          className="pause-btn"
+          onClick={() => setIsRunning(false)}
         >
+          <FaPause />
           Pause
         </button>
 
         <button
-        className="reset-btn"
-        onClick={()=>{
-          setIsRunning(false);
-          setSeconds(0);
-        }}
+          className="reset-btn"
+          onClick={() => {
+            setIsRunning(false);
+            setStudySeconds(0);
+          }}
         >
+          <FaRedo />
           Reset
         </button>
 

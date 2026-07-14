@@ -1,67 +1,54 @@
 import { useEffect, useState } from "react";
+import { FaClock } from "react-icons/fa";
 
 export default function ClockCard() {
 
-  const [time, setTime] = useState(new Date());
+    const [time, setTime] = useState(new Date());
 
-  useEffect(() => {
+    useEffect(() => {
 
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
+        const timer = setInterval(() => {
 
-    return () => clearInterval(interval);
+            setTime(new Date());
 
-  }, []);
+        }, 1000);
 
-  const currentTime = time.toLocaleTimeString("en-IN", {
-    hour: "numeric",
-    minute: "2-digit",
-    second: "2-digit",
-  });
+        return () => clearInterval(timer);
 
-  const currentDate = time.toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+    }, []);
 
-  const day = time.toLocaleDateString("en-IN", {
-    weekday: "long",
-  });
+    const currentTime = time.toLocaleTimeString("en-IN", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+    });
 
-  const hour = time.getHours();
+    const currentDate = time.toLocaleDateString("en-IN", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+    });
 
-  let greeting = "";
-  let quote = "";
+    const hour = time.getHours();
 
-  if (hour < 12) {
-    greeting = "🌞 Good Morning";
-    quote = "Start your day with purpose.";
-  } else if (hour < 17) {
-    greeting = "☀️ Good Afternoon";
-    quote = "Small progress is still progress.";
-  } else if (hour < 21) {
-    greeting = "🌇 Good Evening";
-    quote = "Stay consistent. Success follows discipline.";
-  } else {
-    greeting = "🌙 Good Night";
-    quote = "Rest well. Tomorrow is another opportunity.";
-  }
+    let greeting = "";
 
-  return (
-    <div className="clock-card">
+    if (hour < 12) greeting = "🌞 Good Morning";
+    else if (hour < 17) greeting = "☀️ Good Afternoon";
+    else greeting = "🌙 Good Evening";
 
-      <h2>{greeting}</h2>
+    return (
+        <div className="clock-card">
 
-      <p className="quote">{quote}</p>
+            <FaClock className="clock-icon" />
 
-      <h3>{currentDate}</h3>
+            <h2>{currentTime}</h2>
 
-      <p>{day}</p>
+            <p>{currentDate}</p>
 
-      <h1>{currentTime}</h1>
+            <span>{greeting}</span>
 
-    </div>
-  );
+        </div>
+    );
 }

@@ -1,34 +1,60 @@
 import { useContext } from "react";
+
 import { TaskContext } from "../context/TaskContext";
 import { ExpenseContext } from "../context/ExpenseContext";
 import { NotesContext } from "../context/NotesContext";
+import { StudyContext } from "../context/StudyContext";
 
 import SummaryCard from "../components/dashboard/SummaryCard";
-import "./Dashboard.css";
-export default function Dashboard(){
-    const { tasks } = useContext(TaskContext);
-    const {expenses} = useContext(ExpenseContext);
-    const totalExpense = expenses.reduce(
+import WelcomeCard from "../components/dashboard/WelcomeCard";
+import QuickActions from "../components/dashboard/QuickActions";
 
-    (total, expense) => total + expense.amount,0
+import "../components/dashboard/Dashboard.css";
+
+    export default function Dashboard(){
+
+    const {tasks}=useContext(TaskContext);
+
+    const {expenses}=useContext(ExpenseContext);
+
+    const {notes}=useContext(NotesContext);
+
+    const { studySeconds, percentage } = useContext(StudyContext);
+    const hrs = String(Math.floor(studySeconds / 3600)).padStart(2, "0");
+
+const mins = String(
+  Math.floor((studySeconds % 3600) / 60)
+).padStart(2, "0");
+
+const secs = String(studySeconds % 60).padStart(2, "0");
+
+    const totalExpense=expenses.reduce(
+
+    (total,expense)=>total+expense.amount,
+
+    0
+
     );
-    const { notes } = useContext(NotesContext);
 
-    return(
+        return(
+
         <div className="dashboard">
-        <h1>Welcome, User</h1>
-        <div className="cards-container">
-        <SummaryCard
-            icon="📋"
-            title="Tasks"
-            value={tasks.length}
-            />
 
-            <SummaryCard
-            icon="📝"
-            title="Notes"
-            value={notes.length}
-            />
+        <WelcomeCard/>
+
+        <div className="cards-container">
+
+        <SummaryCard
+        icon="📋"
+        title="Tasks"
+        value={tasks.length}
+        />
+
+        <SummaryCard
+        icon="📝"
+        title="Notes"
+        value={notes.length}
+        />
 
         <SummaryCard
         icon="💰"
@@ -39,15 +65,21 @@ export default function Dashboard(){
         <SummaryCard
         icon="⏱"
         title="Study Time"
-        value="00:00:00"
+        value={`${hrs}:${mins}:${secs}`}
         />
 
         <SummaryCard
         icon="🎯"
         title="Today's Goal"
-        value="0%"
+        value={`${Math.floor(percentage)}%`}
         />
+
         </div>
+
+        <QuickActions/>
+
         </div>
-    );
-}
+
+        );
+
+        }

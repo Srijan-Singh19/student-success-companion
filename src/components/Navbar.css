@@ -1,8 +1,148 @@
-.navbar{
+
+.navbar {
+
+    height: 70px;
+
+    background: white;
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
-    padding-left: 15px;
-    padding-right: 18px;
-    background-color:rgb(204, 123, 205);
+
+    padding: 0 30px;
+
+    box-shadow: 0 2px 15px rgba(0,0,0,.08);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+}
+
+.navbar-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+.navbar-logo {
+
+    font-size: 2.4rem;
+
+    color: #2563EB;
+
+}
+
+.logo-text h2 {
+
+    font-size: 1.2rem;
+
+    color: #1F2937;
+
+    margin-bottom: 2px;
+
+}
+
+.logo-text p {
+
+    font-size: .8rem;
+
+    color: #6B7280;
+
+}
+.navbar-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+.nav-btn {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #F3F4F6;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 18px;
+
+    transition: .3s;
+
+}
+
+.nav-btn:hover {
+
+    background: #2563EB;
+
+    color: white;
+
+    transform: scale(1.08);
+
+}
+.profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+}
+
+.profile-icon {
+
+    font-size: 2.3rem;
+
+    color: #2563EB;
+
+}
+
+.profile span {
+
+    font-weight: 600;
+
+    color: #374151;
+
+}
+@media (max-width:768px){
+
+    .logo-text p{
+        display:none;
+    }
+
+    .logo-text h2{
+
+        font-size:1rem;
+    }
+
+    .profile span{
+
+        display:none;
+    }
+
 }
